@@ -1,105 +1,72 @@
-# Python MQTT Simulation
+# Python MQTT Simulation 🕸️
 
-## Overview
-
-This project simulates multiple IoT devices communicating with an MQTT broker. It allows users to simulate device
-behavior, publish data to MQTT topics, and monitor messages. The project is modular and extensible, supporting different
-device types and easy customization.
-
-## Features
-
-- **Device Simulation**: Simulates multiple devices, including sensors and actuators.
-- **MQTT Integration**: Publishes and subscribes to topics using an MQTT broker.
-- **Device Management**: Supports multiple device types like:
-    - **Door Sensor**
-    - **Indoor Sensor**
-    - **Outdoor Sensor**
-    - **Light Switch**
-    - **Vacuum Cleaner**
-- **Interactive Selection**: Choose to simulate a single device or all devices.
-- **Multithreading**: Allows concurrent simulation of all devices.
+This repository contains a Python-based MQTT simulation tool designed to test and experiment with the MQTT protocol. Whether you're working on IoT projects or exploring publish-subscribe messaging patterns, this simulation provides a flexible and reliable environment.
 
 ---
 
-## Installation
+## 🎯 Features
 
-### Prerequisites
+- **Publish/Subscribe Simulation:** Mimics real-world MQTT messaging flows.
+- **Customizable Topics:** Create, subscribe, and publish to custom MQTT topics.
+- **Broker Interaction:** Seamlessly integrates with popular brokers like Mosquitto or HiveMQ.
+- **Asynchronous Operations:** Leverages `asyncio` for efficient message handling.
+- **Extensibility:** Easily adapt the codebase for your specific needs.
 
-- Python 3.8 or later
-- `pip` package manager
-- An MQTT broker (e.g., Mosquitto or HiveMQ)
-- [paho](https://pypi.org/project/paho-mqtt/) : client library for mqtt
+---
 
-```
-pip install paho-mqtt
-```
+## ⚡ Installation
 
-- [Curses](https://pypi.org/project/windows-curses/) : menu selector for simulation options
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/LazyDoomSlayer/python-mqtt-simulation
+   cd python-mqtt-simulation
+   ```
 
-```
-pip install windows-curses
-```
+2. Install the required Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-- mosquitto installation for **debian**
+3. Run the simulation script:
+   ```bash
+   python mqtt_simulation.py
+   ```
 
-```
-sudo apt install -y mosquitto mosquitto-clients
-sudo systemctl enable mosquitto
-sudo systemctl start mosquitto
-```
+---
 
-- mosquitto installation for **red-hat based**
+## 🔧 Configuration
 
-```
-sudo dnf install -y mosquitto mosquitto-clients
-sudo systemctl start mosquitto
-sudo systemctl enable mosquitto
-```
+- Modify the **broker settings**, topic names, and payloads in the script to fit your use case.
+- Example customization areas:
+  - **Broker URL:** Update with your MQTT broker address.
+  - **Topics:** Define your topics for publish/subscribe operations.
+  - **QoS Levels:** Adjust the quality of service (QoS) settings as needed.
 
-- mosquitto installation for **macos**
+---
 
-```
-brew install mosquitto
-brew services start mosquitto
-```
+## 🌟 Use Cases
 
-- [mosquitto](https://mosquitto.org/download/) installation for **windows**
+- **IoT Development:** Test and debug IoT devices using an MQTT broker.
+- **Protocol Learning:** Understand how MQTT messaging works in practice.
+- **Network Testing:** Simulate real-time messaging in controlled environments.
 
-## Structure
+---
 
-```
-python-mqtt-simulation/
-├── broker/
-│   ├── mqtt_manager.py          # Manages MQTT connections and messaging
-├── devices/
-│   ├── device.py                # Base class for all devices
-│   ├── door_sensor.py           # Door sensor implementation
-│   ├── indoor_sensor.py         # Indoor sensor implementation
-│   ├── outdoor_sensor.py        # Outdoor sensor implementation
-│   ├── light_switch.py          # Light switch implementation
-│   ├── vacuum_cleaner.py        # Vacuum cleaner implementation
-├── menu/
-│   ├── device_selector.py       # Handles user device selection
-├── simulation/
-│   ├── simulation_controller.py # Controls simulations for all devices
-│   ├── door_sensor_simulation.py # Door sensor simulation logic
-│   ├── indoor_sensor_simulation.py # Indoor sensor simulation logic
-│   ├── outdoor_sensor_simulation.py # Outdoor sensor simulation logic
-│   ├── light_switch_simulation.py # Light switch simulation logic
-│   ├── vacuum_cleaner_simulation.py # Vacuum cleaner simulation logic
-├── main.py                      # Entry point for the simulation
-├── requirements.txt             # Project dependencies
-├── README.md                    # Project documentation
-```
+## 🛠️ Requirements
 
-## To run use following command:
+- **Python 3.8 or higher**
+- **paho-mqtt library** (included in `requirements.txt`)
+- An MQTT broker for testing (e.g., [Mosquitto](https://mosquitto.org), [HiveMQ](https://www.hivemq.com)).
 
-```
-python main.py
-```
+---
 
-## To verify publishing of messages
+## 📝 Contributing
 
-```
-mosquitto_sub -h <BROKER_IP> -t "home/#"
-```
+Contributions are welcome! If you have ideas, bug fixes, or new features, feel free to open an issue or submit a pull request.
+
+---
+
+## ❤️ Acknowledgments
+
+- Thanks to the developers of [paho-mqtt](https://www.eclipse.org/paho/) for their MQTT library.
+- Inspired by real-world use cases in IoT and networking.
